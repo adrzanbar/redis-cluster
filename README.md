@@ -1,5 +1,3 @@
----
-
 # 🚀 Instrucciones para configurar un clúster de Redis en RKE2
 
 > **Recomendación inicial**: elimina las máquinas virtuales y volúmenes de intentos fallidos para evitar agotar los recursos disponibles.
