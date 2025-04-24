@@ -96,7 +96,7 @@ ssh debian@<IP del rke2-server> 'bash -s' < rke2_server.sh
 Necesitarás pasar como parámetros la IP del nodo rke2-server y el `token` del paso anterior
 
 ```bash
-ssh debian@<IP del rke2-agent> <IP del rke2-server> <token>
+ssh debian@<IP del rke2-agent> 'bash -s' < rke2_agent.sh <IP del rke2-server> <token>
 ```
 
 Haz lo mismo para el segundo agente.
