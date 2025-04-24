@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hit-counter
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+      app: myapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hit-counter-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: c0r0nel/hit-counter:latest
+        env:
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: redis-cluster
+                key: redis-password
+          - name: REDIS_CLUSTER
+            value: "redis-cluster"
+        ports:
+        - containerPort: 5000
