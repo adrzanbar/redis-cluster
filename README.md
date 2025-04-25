@@ -173,7 +173,7 @@ kubectl get pvc
 ```bash
 kubectl apply -f hit-counter/manifests/app-deployment-service.yaml
 kubectl get pods
-kubectl port-forward service/ejemplo1-kanboard 8080:80
+kubectl port-forward service/hit-counter 8080:80
 ```
 
 ---
